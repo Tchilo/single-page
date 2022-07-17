@@ -2,3 +2,255 @@
 @use 'breakpoints' as *;
 @use 'colors' as *;
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap');
+
+@mixin button($color, $hovver) {
+  border-radius: 28px;
+  border: none;
+  font-weight: 700;
+  padding: 14px 45px;
+  background-color: $color;
+  color: $light-cream;
+
+  &:hover {
+    background-color: $hovver;
+  }
+}
+
+@mixin cards($color, $height) {
+  background-color: $color;
+  border-radius: 8px;
+  height: $height;
+  background-position: 92% 30%;
+  background-repeat: no-repeat;
+  padding: 24px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: baseline;
+
+  & p {
+    color: $light-cream;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+
+  }
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: $light-cream;
+
+  p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: center;
+
+  }
+}
+
+
+header {
+  nav {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      @include button($black, $galactic-blue );
+    }
+  }
+
+  h1 {
+    // font-family: Plus Jakarta Sans;
+    margin: 32px 0 16px;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: center;
+  }
+
+
+}
+
+
+main {
+  margin-top: 32px;
+
+  .container {
+    display: grid;
+    // grid-template-rows: repeat(5,1fr);
+    padding: 0 16px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 24px 25px;
+  }
+
+  .galactic {
+    @include cards($galactic-blue, 364px);
+    background-image: url(../assets/pattern-graphic-design.svg);
+    grid-column: 1/-1;
+  }
+
+  .ui {
+    @include cards($summer-yellow, 182px);
+    background-image: url(../assets/pattern-ui-ux.svg);
+    grid-column: 1/2;
+
+  }
+
+  .apps {
+    @include cards($pink, 182px);
+    background-image: url(../assets/pattern-ui-ux.svg);
+    grid-column: 2/3;
+
+
+
+  }
+
+  .illustrations {
+    @include cards($light-red, 158px);
+    background-image: url(../assets/pattern-illustrations.svg);
+    grid-column: 1/-1;
+
+
+
+  }
+
+  .photography {
+    @include cards($cyan, 158px);
+    background-image: url(../assets/pattern-photography.svg);
+    grid-column: 1/-1;
+  }
+
+
+  .motion {
+    @include cards($maroon, 158px);
+    background-image: url(../assets/pattern-motion-graphics.svg);
+    grid-column: 1/-1;
+
+  }
+
+
+  .about-me {
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .img {
+      max-width: 500px;
+      padding: 0 16px;
+      width: 100%;
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 33px;
+        text-align: center;
+        margin: 40px 0 24px
+      }
+
+      button {
+        @include button($light-red, $summer-yellow);
+        margin-top: 24px;
+      }
+    }
+  }
+
+  .work {
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 30px;
+      text-align: center;
+
+    }
+  }
+
+
+  .slide {
+    width: 100%;
+    max-width: 800px;
+    height: 350px;
+    position: absolute;
+    transition: all 0.5s;
+  
+  
+  & img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+}
+
+  .arrows {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    gap: 16px;
+
+    & .arrow {
+      background-color: $black;
+      height: 64px;
+      width: 64px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        background-color: $galactic-blue;
+      }
+    }
+  }
+
+  .call {
+    background-color: $black;
+    color: $light-cream;
+    height: 352px;
+    padding: 49px 24px;
+    border-radius: 10px;
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin: 100px 0 40px;
+
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 33px;
+
+    }
+
+    button {
+      @include button($light-red, $summer-yellow);
+
+    }
+  }
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+
+  button {
+    @include button($black, $galactic-blue );
+  }
+}
