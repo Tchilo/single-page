@@ -250,6 +250,13 @@ main .work h2 {
   line-height: 30px;
   text-align: center;
 }
+main .slider {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  position: relative;
+  /* overflow: hidden; */
+}
 main .slide {
   width: 100%;
   max-width: 800px;
