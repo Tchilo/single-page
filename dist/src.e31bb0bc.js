@@ -123,12 +123,25 @@ var btnRight = document.getElementById('right');
 var slides = document.querySelectorAll('.slide'); //max length of slides 
 
 var maxSlide = slides.length - 1;
-var curSlide = 0;
+var curSlide = 0; //next button
+
 btnRight.addEventListener('click', function () {
   if (curSlide === maxSlide) {
     curSlide = 0;
   } else {
     curSlide++;
+  }
+
+  slides.forEach(function (slide, index) {
+    slide.style.transform = "translateX(".concat(100 * (index - curSlide), "%)");
+  });
+}); //prev button 
+
+btnLeft.addEventListener('click', function () {
+  if (curSlide === 0) {
+    curSlide = maxSlide;
+  } else {
+    curSlide--;
   }
 
   slides.forEach(function (slide, index) {
