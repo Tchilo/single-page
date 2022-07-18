@@ -76,6 +76,19 @@ header h1 {
   line-height: 45px;
   text-align: center;
 }
+@media (min-width: 768px) {
+  header h1 {
+    font-size: 44px;
+    line-height: 55px;
+  }
+  header p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 28px;
+    max-width: 582px;
+    margin: 0 auto;
+  }
+}
 
 main {
   margin-top: 32px;
@@ -86,7 +99,7 @@ main .container {
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px 25px;
 }
-main .galactic {
+main .container .galactic {
   background-color: #755CDE;
   border-radius: 8px;
   height: 364px;
@@ -99,14 +112,14 @@ main .galactic {
   background-image: url(/pattern-graphic-design.0e080295.svg);
   grid-column: 1/-1;
 }
-main .galactic p {
+main .container .galactic p {
   color: #FFF7F0;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
 }
-main .ui {
+main .container .ui {
   background-color: #F6A560;
   border-radius: 8px;
   height: 182px;
@@ -119,14 +132,14 @@ main .ui {
   background-image: url(/pattern-ui-ux.d6fb8232.svg);
   grid-column: 1/2;
 }
-main .ui p {
+main .container .ui p {
   color: #FFF7F0;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
 }
-main .apps {
+main .container .apps {
   background-color: #F39E9E;
   border-radius: 8px;
   height: 182px;
@@ -139,14 +152,14 @@ main .apps {
   background-image: url(/pattern-ui-ux.d6fb8232.svg);
   grid-column: 2/3;
 }
-main .apps p {
+main .container .apps p {
   color: #FFF7F0;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
 }
-main .illustrations {
+main .container .illustrations {
   background-color: #EB7565;
   border-radius: 8px;
   height: 158px;
@@ -159,14 +172,14 @@ main .illustrations {
   background-image: url(/pattern-illustrations.cedf9cb2.svg);
   grid-column: 1/-1;
 }
-main .illustrations p {
+main .container .illustrations p {
   color: #FFF7F0;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
 }
-main .photography {
+main .container .photography {
   background-color: #61C4B7;
   border-radius: 8px;
   height: 158px;
@@ -179,14 +192,14 @@ main .photography {
   background-image: url(/pattern-photography.7317d155.svg);
   grid-column: 1/-1;
 }
-main .photography p {
+main .container .photography p {
   color: #FFF7F0;
   font-size: 24px;
   font-weight: 700;
   line-height: 30px;
   text-align: left;
 }
-main .motion {
+main .container .motion {
   background-color: #552049;
   border-radius: 8px;
   height: 158px;
@@ -199,7 +212,7 @@ main .motion {
   background-image: url(/pattern-motion-graphics.a4f8c605.svg);
   grid-column: 1/-1;
 }
-main .motion p {
+main .container .motion p {
   color: #FFF7F0;
   font-size: 24px;
   font-weight: 700;
@@ -253,18 +266,18 @@ main .work h2 {
 main .slider {
   width: 100%;
   max-width: 800px;
-  height: 350px;
+  height: 180px;
   position: relative;
   /* overflow: hidden; */
 }
-main .slide {
+main .slider .slide {
   width: 100%;
   max-width: 800px;
   height: 350px;
   position: absolute;
   transition: all 0.5s;
 }
-main .slide img {
+main .slider .slide img {
   width: 100%;
   height: 180px;
   object-fit: cover;
@@ -288,17 +301,19 @@ main .arrows .arrow:hover {
   background-color: #755CDE;
 }
 main .call {
+  margin: 100px 15px 40px;
   background-color: #030303;
   color: #FFF7F0;
   height: 352px;
-  padding: 49px 24px;
   border-radius: 10px;
-  margin: 0 15px;
+}
+main .call .max {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 49px 24px;
   gap: 24px;
-  margin: 100px 0 40px;
+  margin: 0 15px;
 }
 main .call h2 {
   font-size: 26px;
@@ -315,6 +330,69 @@ main .call button {
 }
 main .call button:hover {
   background-color: #F6A560;
+}
+@media (min-width: 768px) {
+  main .container {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+  }
+  main .container .galactic {
+    grid-column: 1/3;
+    grid-row: 1/3;
+  }
+  main .container .apps {
+    grid-column: 4/5;
+  }
+  main .container .ui {
+    grid-column: 3/4;
+  }
+  main .container .illustrations {
+    grid-row: 2/3;
+    grid-column: 3/-1;
+  }
+  main .container .photography {
+    grid-column: 1/3;
+  }
+  main .container .motion {
+    grid-column: 3/-1;
+  }
+  main .about-me {
+    flex-direction: row;
+  }
+  main .about-me .img {
+    max-width: 300px;
+  }
+  main .about-me .img img {
+    width: 132%;
+    margin: 0 0 0 -55px;
+  }
+  main .about-me .info {
+    text-align: left;
+    align-items: start;
+    max-width: 292px;
+    margin: 0 auto;
+  }
+  main .about-me .info h2,
+main .about-me .info p {
+    text-align: left;
+  }
+  main .work h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 56px;
+  }
+  main .call {
+    margin: 100px 39px 40px;
+  }
+  main .call .max {
+    max-width: 414px;
+    margin: 0 auto;
+  }
+  main .call .max p {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 footer {
@@ -333,6 +411,11 @@ footer button {
 }
 footer button:hover {
   background-color: #755CDE;
+}
+@media (min-width: 768px) {
+  footer {
+    padding: 30px 39px;
+  }
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
